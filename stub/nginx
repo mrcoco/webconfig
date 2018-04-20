@@ -1,0 +1,31 @@
+server {
+    server_name {domain};
+    root        {root_dir};
+    index       index.php index.html index.htm;
+    charset     utf-8;
+
+    client_max_body_size 64M;
+
+    access_log  {log-access}-access.log;
+    error_log {log-error}-error.log;
+
+    location / {
+        try_files $uri $uri/ /index.php?_url=$uri&$args;
+    }
+    
+location ~ \.php {
+        fastcgi_pass unix:/home/dwiagus/.valet/valet.sock;
+        fastcgi_index /index.php;
+
+        include fastcgi_params;
+        fastcgi_split_path_info       ^(.+\.php)(/.+)$;
+        fastcgi_param PATH_INFO       $fastcgi_path_info;
+        fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_read_timeout 1200;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
