@@ -2,7 +2,8 @@
     "require": {
         "symfony/process": "^4.0",
         "symfony/console": "^4.0",
-        "symfony/dotenv": "^4.0"
+        "symfony/dotenv": "^4.0",
+        "antonvolkov/php-simple-rest-client": "^0.7.0"
     },
    "autoload": {          
 	"psr-4": {

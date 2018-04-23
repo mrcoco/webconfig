@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
+    'da4eeef66b61bc4c23aed8f22c38838d' => $vendorDir . '/antonvolkov/php-simple-rest-client/src/SimpleRestClient.php',
 );

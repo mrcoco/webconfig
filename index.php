@@ -6,6 +6,7 @@ use Symfony\Component\Dotenv\Dotenv;
 use App\ProjectCommand;
 use App\MysqlCommand;
 use App\PostgresqlCommand;
+use App\RestCommand;
 
 
 $dotenv = new Dotenv();
@@ -19,4 +20,5 @@ $application = new Application("Web Server config Tool","0.1.0");
 $application->add(new ProjectCommand());
 $application->add(new MysqlCommand());
 $application->add(new PostgresqlCommand());
+$application->add(new RestCommand());
 $application->run();

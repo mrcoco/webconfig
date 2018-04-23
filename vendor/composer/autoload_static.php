@@ -8,6 +8,7 @@ class ComposerStaticInitd8cd7333539b2a9e80fd5cf82de952aa
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'da4eeef66b61bc4c23aed8f22c38838d' => __DIR__ . '/..' . '/antonvolkov/php-simple-rest-client/src/SimpleRestClient.php',
     );
 
     public static $prefixLengthsPsr4 = array (

@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9929a5f1b634d7a3a4390e54e278e56c",
+    "content-hash": "88b7bacae0df5ba901e0c10f6c69ef9a",
     "packages": [
+        {
+            "name": "antonvolkov/php-simple-rest-client",
+            "version": "0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/advolkov/php-simple-rest-client.git",
+                "reference": "02ab3e7f71a400a8e4f4cbbb86cdba44513eae6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/advolkov/php-simple-rest-client/zipball/02ab3e7f71a400a8e4f4cbbb86cdba44513eae6f",
+                "reference": "02ab3e7f71a400a8e4f4cbbb86cdba44513eae6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/SimpleRestClient.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Volkov",
+                    "email": "avolkov1@gmail.com"
+                }
+            ],
+            "description": "Simple rest-api client for php",
+            "keywords": [
+                "api",
+                "get",
+                "json",
+                "php",
+                "post",
+                "rest"
+            ],
+            "time": "2017-08-20T13:51:12+00:00"
+        },
         {
             "name": "symfony/console",
             "version": "v4.0.8",
