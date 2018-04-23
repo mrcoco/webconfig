@@ -23,13 +23,6 @@ class RestCommand extends Command
 		->addArgument('method', InputArgument::REQUIRED, 'The Methode API Request.')
 		->addArgument('parrams', InputArgument::OPTIONAL, 'The array Parrams API Request.')
 		->addArgument('headers', InputArgument::OPTIONAL, 'The array Header API Request.');
-		/**
-		->addArgument(
-			'headers',
-			InputArgument::IS_ARRAY | InputArgument::OPTIONAL,
-			'Request Parrameter (separate multiple parramse with a space)?'
-		);
-		**/
 	}
 	protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -37,7 +30,11 @@ class RestCommand extends Command
 		$method     = $input->getArgument('method');
 		$parrams 	= $input->getArgument('parrams');
 
-		$client 	= \SimpleRestClient::get($url, $parrams);
+		if($method == 'post'){
+			$client 	= \SimpleRestClient::post($url, $parrams);
+		}else{
+			$client 	= \SimpleRestClient::get($url, $parrams);
+		}
 		//print_r($parrams);
 		$output->writeln(json_encode($client));
     }
