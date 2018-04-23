@@ -24,6 +24,13 @@ class RestCommand extends Command
 		->addArgument('parrams', InputArgument::OPTIONAL, 'The array Parrams API Request.')
 		->addArgument('headers', InputArgument::OPTIONAL, 'The array Header API Request.');
 	}
+	/**
+	 * execute command
+	 *
+	 * @param InputInterface $input
+	 * @param OutputInterface $output
+	 * @return void
+	 */
 	protected function execute(InputInterface $input, OutputInterface $output)
     {
 		$url		= $input->getArgument('url');

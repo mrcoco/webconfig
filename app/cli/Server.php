@@ -9,16 +9,16 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 */
 class Server 
 {
-	private $server;
+	private $service;
 
-	function __construct($server)
+	function __construct($service)
 	{
-		$this->server = $server;
+		$this->service = $service;
 	}
 	
 	public function isActive()
 	{
-		$process = new Process('systemctl is-active '.$this->server);
+		$process = new Process('systemctl is-active '.$this->service);
 		$process->run();
 		if (!$process->isSuccessful()) {
 		    throw new ProcessFailedException($process);
@@ -28,7 +28,7 @@ class Server
 
 	public function down()
 	{
-		$process = new Process('sudo systemctl stop '.$this->server);
+		$process = new Process('sudo systemctl stop '.$this->service);
 		$process->run();
 		if (!$process->isSuccessful()) {
 		    throw new ProcessFailedException($process);
@@ -38,7 +38,7 @@ class Server
 
 	public function restart()
 	{
-		$process = new Process('sudo systemctl restart '.$this->server);
+		$process = new Process('sudo systemctl restart '.$this->service);
 		$process->run();
         if (!$process->isSuccessful()) {
 		    throw new ProcessFailedException($process);
@@ -48,7 +48,7 @@ class Server
 
 	public function up()
 	{
-		$process = new Process('sudo systemctl start '.$this->server);
+		$process = new Process('sudo systemctl start '.$this->service);
 		$process->run();
 		if (!$process->isSuccessful()) {
 		    throw new ProcessFailedException($process);

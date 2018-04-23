@@ -1,7 +1,6 @@
 <?php
 namespace App;
 
-use App\Server;
 /**
 * 
 */
@@ -10,9 +9,9 @@ class Mysql
 	
 	private $server;
 
-	function __construct()
+	function __construct(Server $server)
 	{
-		$this->server = new Server('mysqld');
+		$this->server = $server;
 	}
 
 	public function isActive()

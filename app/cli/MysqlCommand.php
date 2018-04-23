@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-
+use App\Server;
 use App\Mysql;
 
 class MysqlCommand extends Command
@@ -25,8 +25,9 @@ class MysqlCommand extends Command
 	}
 	protected function execute(InputInterface $input, OutputInterface $output)
     {
-    	$com 	= $input->getArgument('service');
-    	$mysql 	= new Mysql();
+		$com 	= $input->getArgument('service');
+		$server = new Server('mysqld');
+    	$mysql 	= new Mysql($server);
     	switch ($com) {
     		case 'start':
     			$output->writeln('Starting Mysql ...');

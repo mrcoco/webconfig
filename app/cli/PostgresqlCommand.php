@@ -9,6 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
 use App\Postgresql;
+use App\Server;
 
 class PostgresqlCommand extends Command
 {
@@ -22,7 +23,8 @@ class PostgresqlCommand extends Command
 	}
 	protected function execute(InputInterface $input, OutputInterface $output)
     {
-    	$com 	= $input->getArgument('service');
+		$com 	= $input->getArgument('service');
+		$server = new Server('postgresql');
     	$pgsql 	= new Postgresql();
     	switch ($com) {
     		case 'start':

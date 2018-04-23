@@ -11,6 +11,7 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 use App\FileSystem;
+use App\Server;
 use App\Nginx;
 
 
@@ -59,8 +60,8 @@ class ProjectCommand extends Command
         	$gitProcess->run();
         	$output->writeln($gitProcess->getOutput());
         }
-
-     	$nginx = new Nginx();
+		$server = new Server('nginx');
+     	$nginx = new Nginx($server);
      	if($nginx->isActive() == 'active')
      	{
      		$output->writeln('Restart Nginx: ...'.$nginx->restart());
